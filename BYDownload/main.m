@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "BlockTest.h"
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
+        BlockTest *test = [[BlockTest alloc] init];
+        [test blockTestGloabl1];
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }
+
