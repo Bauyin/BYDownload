@@ -28,6 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 }
 
 - (IBAction)startDownload:(id)sender
@@ -40,9 +41,18 @@
     }
     NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
     NSString *videoPath = [docPath stringByAppendingPathComponent:fileName];
-    
+    long long localFileSize = 0;
+    if ([[NSFileManager defaultManager] fileExistsAtPath:videoPath])
+    {
+        NSError *error = nil;
+        NSDictionary *dict = [[NSFileManager defaultManager] attributesOfItemAtPath:videoPath error:&error];
+        if (error == nil)
+        {
+            localFileSize = [dict[NSFileSize] longLongValue];
+        }
+    }
     __weak typeof(self) weakSelf = self;
-    self.downloadTaskId = [[BYDownloadManager sharedDownloadManager] startDownloadWithUrl:urlStr toFilePath:videoPath startLocation:0 progressBlock:^(NSData *recivedData, long recivedDataLengh, long totalDataLengh) {
+    self.downloadTaskId = [[BYDownloadManager sharedDownloadManager] startDownloadWithUrl:urlStr toFilePath:videoPath startLocation:localFileSize progressBlock:^(NSData *recivedData, long recivedDataLengh, long totalDataLengh) {
         float progress = recivedDataLengh/(float)totalDataLengh;
         weakSelf.progressLabel.text = [NSString stringWithFormat:@"进度：%.0f%%",progress * 100];
         weakSelf.totalLabel.text = [NSString stringWithFormat:@"总大小：%.2fM",totalDataLengh/1024.0/1024.0];
@@ -72,6 +82,10 @@
     [[BYDownloadManager sharedDownloadManager] cancelDownload:self.downloadTaskId];
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    
+}
 #pragma mark - Getter
 - (NSMutableArray *)downloadArray
 {

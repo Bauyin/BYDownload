@@ -35,11 +35,14 @@
                      progressBlock:(BYDownloadManagerProgressBlock)progressBlock
                      completeBlock:(BYDownloadManagerCompleteBlock)completeBlock
 {
-    BYDownloadOpreation *operation = [[BYDownloadOpreation alloc] initOperationWithDownloadUrl:URL saveFilePath:path startLocation:location progressBlock:^(NSData *recivedData, long recivedDataLengh, long totalDataLengh) {
-        progressBlock(recivedData,recivedDataLengh,totalDataLengh);
+    BYDownloadOpreation *operation = [[BYDownloadOpreation alloc] initOperationWithDownloadUrl:URL writeToFilePath:path writedFileSize:location progressBlock:^(NSData *recivedData, long recivedDataLengh, long totalDataLengh) {
+                progressBlock(recivedData,recivedDataLengh,totalDataLengh);
     } completeBlock:^(NSString *taskId, BOOL isFinished, NSError *error) {
         completeBlock(taskId,isFinished,error);
     }];
+    operation.completionBlock = ^{
+        
+    };
     dispatch_semaphore_wait(self.downloadArraySemphore, DISPATCH_TIME_FOREVER);
     [self.downloadArray addObject:operation];
     dispatch_semaphore_signal(self.downloadArraySemphore);

@@ -117,6 +117,40 @@
                     <view key="view" contentMode="scaleToFill" id="3IR-cL-25q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WA4-hQ-KaL">
+                                <rect key="frame" x="117" y="100" width="140" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="blockOperationSync"/>
+                                <connections>
+                                    <action selector="blockOperationSync:" destination="Cqp-BA-iPO" eventType="touchUpInside" id="Ypg-7e-KtZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qj2-nH-jk2">
+                                <rect key="frame" x="114" y="138" width="147" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="blockOperationAsync"/>
+                                <connections>
+                                    <action selector="blockOperationAsync:" destination="Cqp-BA-iPO" eventType="touchUpInside" id="XL9-7d-bm7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vv2-ac-sH3">
+                                <rect key="frame" x="111" y="189" width="153" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="customOperationSync"/>
+                                <connections>
+                                    <action selector="customOperationSync:" destination="Cqp-BA-iPO" eventType="touchUpInside" id="rGE-XR-7kf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7w6-Bf-PqE">
+                                <rect key="frame" x="107" y="227" width="161" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="customOperationAsync"/>
+                                <connections>
+                                    <action selector="customOperationAsync:" destination="Cqp-BA-iPO" eventType="touchUpInside" id="Zge-4l-zbG"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="d2L-oF-aeH"/>
                     </view>

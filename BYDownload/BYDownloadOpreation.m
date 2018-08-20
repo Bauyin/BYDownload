@@ -19,7 +19,6 @@
 @property (nonatomic, strong) NSString *operationId;
 @property (nonatomic, strong) NSString *downloadUrl;
 
-@property (nonatomic, assign) long long startLocation;
 @property (nonatomic, assign) long long totalFileLength;
 @property (nonatomic, assign) long long writedFileLength;
 @property (nonatomic, strong) NSString *saveFilePath;
@@ -38,8 +37,8 @@
 @synthesize executing = _executing;
 
 - (instancetype)initOperationWithDownloadUrl:(NSString *)URL
-                                saveFilePath:(NSString *)filePath
-                               startLocation:(long long)location
+                             writeToFilePath:(NSString *)filePath
+                              writedFileSize:(long long)size
                                progressBlock:(BYDownloadOpreationProgressBlock)progressBlock
                                completeBlock:(BYDownloadOpreationCompleteBlock)completeBlock
 {
@@ -47,7 +46,7 @@
     {
         self.saveFilePath = filePath;
         self.downloadUrl = URL;
-        self.startLocation = location;
+        self.writedFileLength = size;
         self.progressBlock = progressBlock;
         self.completeBlock = completeBlock;
         NSTimeInterval interval = [[NSDate date] timeIntervalSince1970];
@@ -58,25 +57,48 @@
 
 /**
  异步处理必须rewrite start
+ 如果不复写start函数，nsoperstion的start执行玩后就会调用，设置finished，结束operation
+ 系统实现如下：
+ - (void)start
+ {
+ if (self.isCancelled || self.isFinished)
+ {
+ [self setExecuting:NO];
+ [self setFinished:YES];
+ return;
+ }
+ 
+ [self setExecuting:YES];
+ [self main];
+ [self setExecuting:NO];
+ [self setFinished:YES];
+ }
  */
 - (void)start
 {
+    NSLog(@"%@",[NSThread currentThread]);
     if (self.isCancelled || self.isFinished)
     {
-        _executing = YES;
+        [self setExecuting:NO];
+        [self setFinished:YES];
+        return;
     }
     
-    NSURL *requestURL = [NSURL URLWithString:self.downloadUrl];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:requestURL];
-    if (self.startLocation > 0)
+    if (self.dataTask == nil)
     {
-        NSString *rangValue = [NSString stringWithFormat:@"bytes=%lld",self.startLocation];
-        [request addValue:rangValue forHTTPHeaderField:@"Range"];
+        NSURL *requestURL = [NSURL URLWithString:self.downloadUrl];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:requestURL];
+        if (self.writedFileLength > 0)
+        {
+            NSString *rangValue = [NSString stringWithFormat:@"bytes=%lld-",self.writedFileLength];
+            [request addValue:rangValue forHTTPHeaderField:@"Range"];
+        }
+        self.dataTask = [self.session dataTaskWithRequest:request];
     }
-    self.dataTask = [self.session dataTaskWithRequest:request];
-    [self.dataTask resume];
-}
 
+    [self.dataTask resume];
+    [self setExecuting:YES];
+}
 
 /**
  同步处理无需rewrite start，只需rewrite main
@@ -86,30 +108,32 @@
     NSLog(@"%s",__func__);
 }
 
+- (void)resume
+{
+    if (self.isCancelled || self.isFinished) return;
+    
+    [self.dataTask resume];
+    [self setExecuting:YES];
+}
+
 - (void)suspend
 {
+    if (self.isCancelled || self.isFinished) return;
+    
     [self.dataTask suspend];
-    _executing = NO;
+    [self setExecuting:NO];
 }
 
 - (void)cancel
 {
+    if (self.isCancelled || self.isFinished) return;
+    
     [self.dataTask cancel];
+
     [super cancel];
-    _executing = NO;
+    [self setExecuting:NO];
     [self setFinished:YES];
 }
-
-//- (void)stop
-//{
-//    [self.dataTask cancel];
-//}
-//
-//- (void)resume
-//{
-//    
-//}
-
 
 #pragma mark - Gett && Setter
 - (NSURLSession *)session
@@ -125,11 +149,21 @@
 - (void)setFinished:(BOOL)finished
 {
     //手动触发KVO，让OpreationQueue结束此operation
-    [self willChangeValueForKey:@"_isFinished"];
+    [self willChangeValueForKey:@"isFinished"];
     _finished = finished;
-    [self didChangeValueForKey:@"_isFinished"];
+    [self didChangeValueForKey:@"isFinished"];
 }
 
+- (void)setExecuting:(BOOL)executing
+{
+    [self willChangeValueForKey:@"isExecuting"];
+    _executing = executing;
+    [self didChangeValueForKey:@"isExecuting"];
+}
+
+/**
+ 输出流，将数据写入文件
+ */
 - (NSOutputStream *)outputStream
 {
     if (_outputStream == nil)
@@ -139,12 +173,13 @@
     }
     return _outputStream;
 }
+
 #pragma mark - NSURLSessionDataTaskDeleagte
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask
 didReceiveResponse:(NSURLResponse *)response
  completionHandler:(void (^)(NSURLSessionResponseDisposition disposition))completionHandler
 {
-    self.totalFileLength = response.expectedContentLength;
+    self.totalFileLength = response.expectedContentLength+self.writedFileLength;
     completionHandler(NSURLSessionResponseAllow);
     
     NSLog(@"%s",__func__);
@@ -156,9 +191,8 @@ didReceiveResponse:(NSURLResponse *)response
 {
     [self.outputStream open];
     [self.outputStream write:[data bytes] maxLength:data.length];
-    [self.outputStream close];
     self.writedFileLength += data.length;
-    self.progressBlock(data, self.writedFileLength, dataTask.response.expectedContentLength);
+    self.progressBlock(data, self.writedFileLength, self.totalFileLength);
 //    NSLog(@"%s--%lu--%ld",__func__,(unsigned long)data.length,(long)lenth);
 }
 

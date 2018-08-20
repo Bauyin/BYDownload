@@ -18,8 +18,8 @@ typedef void(^BYDownloadOpreationCompleteBlock)(NSString *taskId, BOOL isFinishe
 @property (nonatomic, strong, readonly) NSString *operationId;
 
 - (instancetype)initOperationWithDownloadUrl:(NSString *)URL
-                                saveFilePath:(NSString *)filePath
-            startLocation:(long long)location
+                                writeToFilePath:(NSString *)filePath
+            writedFileSize:(long long)size
             progressBlock:(BYDownloadOpreationProgressBlock)progressBlock
             completeBlock:(BYDownloadOpreationCompleteBlock)completeBlock;
 

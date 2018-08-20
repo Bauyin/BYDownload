@@ -18,6 +18,7 @@
 		420A1434212410BD00449115 /* TestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420A1433212410BD00449115 /* TestController.m */; };
 		420A1437212413C400449115 /* TestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 420A1436212413C400449115 /* TestObject.m */; };
 		420A143A2124293D00449115 /* BlockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 420A14392124293D00449115 /* BlockTest.m */; };
+		77DEB900212B0F4200F30B0E /* TestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DEB8FF212B0F4200F30B0E /* TestOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,8 @@
 		420A14382124293D00449115 /* BlockTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockTest.h; sourceTree = "<group>"; };
 		420A14392124293D00449115 /* BlockTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlockTest.m; sourceTree = "<group>"; };
 		420A143C21242C4B00449115 /* BlockTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BlockTest.cpp; sourceTree = "<group>"; };
+		77DEB8FE212B0F4200F30B0E /* TestOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestOperation.h; sourceTree = "<group>"; };
+		77DEB8FF212B0F4200F30B0E /* TestOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,8 @@
 				420A14382124293D00449115 /* BlockTest.h */,
 				420A14392124293D00449115 /* BlockTest.m */,
 				420A143C21242C4B00449115 /* BlockTest.cpp */,
+				77DEB8FE212B0F4200F30B0E /* TestOperation.h */,
+				77DEB8FF212B0F4200F30B0E /* TestOperation.m */,
 			);
 			path = BYDownload;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 				42077C102123D0920083365B /* BYDownloadManager.m in Sources */,
 				42077C052123CA3B0083365B /* main.m in Sources */,
 				42077BF72123CA3A0083365B /* AppDelegate.m in Sources */,
+				77DEB900212B0F4200F30B0E /* TestOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
