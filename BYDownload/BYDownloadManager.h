@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 typedef void(^BYDownloadManagerProgressBlock)(NSData *recivedData, long recivedDataLengh, long totalDataLengh);
-typedef void(^BYDownloadManagerCompleteBlock)(BOOL isFinished, NSError *error);
+typedef void(^BYDownloadManagerCompleteBlock)(NSString *taskId, BOOL isFinished, NSError *error);
 
 
 @interface BYDownloadManager : NSObject
@@ -23,11 +23,12 @@ typedef void(^BYDownloadManagerCompleteBlock)(BOOL isFinished, NSError *error);
                                completeBlock:(BYDownloadManagerCompleteBlock)completeBlock;
 
 - (void)cancelDownload:(NSString *)identifer;
+- (void)pauseDownload:(NSString *)identifer;
+- (void)resumeDownload:(NSString *)identifer;
 
 - (void)cancelAllDownload;
 
-- (void)pauseDownload:(NSString *)identifer;
-
 - (void)pauseAllDownload;
 
+- (void)resumeAllDownload;
 @end

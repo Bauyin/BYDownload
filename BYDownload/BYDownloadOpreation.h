@@ -11,7 +11,7 @@
 @class BYDownloadOpreation;
 
 typedef void(^BYDownloadOpreationProgressBlock)(NSData *recivedData, long recivedDataLengh, long totalDataLengh);
-typedef void(^BYDownloadOpreationCompleteBlock)(BYDownloadOpreation *opreation,BOOL isFinished, NSError *error);
+typedef void(^BYDownloadOpreationCompleteBlock)(NSString *taskId, BOOL isFinished, NSError *error);
 
 @interface BYDownloadOpreation : NSOperation
 
@@ -27,6 +27,8 @@ typedef void(^BYDownloadOpreationCompleteBlock)(BYDownloadOpreation *opreation,B
  暂停
  */
 - (void)suspend;
+
+- (void)cancel;
 
 /**
  取消

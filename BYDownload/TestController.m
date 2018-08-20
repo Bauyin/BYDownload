@@ -25,13 +25,9 @@
 //        NSLog(@"%@",self);
 //    };
 //    [self stringCopyTest];
-    UIImage *image = [[UIImage imageNamed:@"nav_close"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];;
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(test)];
+
 }
-- (void)test
-{
-    
-}
+
 - (void)dealloc
 {
     NSLog(@"%s",__func__);

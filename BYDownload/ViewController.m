@@ -13,6 +13,10 @@
 //https://devstreaming-cdn.apple.com/videos/wwdc/2015/2267p2ni281ba/226/226_sd_advanced_nsoperations.mp4?dl=1
 @interface ViewController ()
 
+@property (strong, nonatomic) NSMutableArray *downloadArray;
+
+@property (strong, nonatomic) NSString *downloadTaskId;
+
 @property (weak, nonatomic) IBOutlet UILabel *totalLabel;
 @property (weak, nonatomic) IBOutlet UILabel *writedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *progressLabel;
@@ -37,21 +41,45 @@
     NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
     NSString *videoPath = [docPath stringByAppendingPathComponent:fileName];
     
-    [[BYDownloadManager sharedDownloadManager] startDownloadWithUrl:urlStr toFilePath:videoPath startLocation:0 progressBlock:^(NSData *recivedData, long recivedDataLengh, long totalDataLengh) {
-        self.progressLabel.text = [NSString stringWithFormat:@"进度：%.2f",recivedDataLengh/(float)totalDataLengh];
-        self.totalLabel.text = [NSString stringWithFormat:@"总大小：%.2fM",totalDataLengh/1024.0/1024.0];
-        self.writedLabel.text = [NSString stringWithFormat:@"写大小：%.2fM",recivedDataLengh/1024.0/1024.0];
+    __weak typeof(self) weakSelf = self;
+    self.downloadTaskId = [[BYDownloadManager sharedDownloadManager] startDownloadWithUrl:urlStr toFilePath:videoPath startLocation:0 progressBlock:^(NSData *recivedData, long recivedDataLengh, long totalDataLengh) {
+        float progress = recivedDataLengh/(float)totalDataLengh;
+        weakSelf.progressLabel.text = [NSString stringWithFormat:@"进度：%.0f%%",progress * 100];
+        weakSelf.totalLabel.text = [NSString stringWithFormat:@"总大小：%.2fM",totalDataLengh/1024.0/1024.0];
+        weakSelf.writedLabel.text = [NSString stringWithFormat:@"写大小：%.2fM",recivedDataLengh/1024.0/1024.0];
 
-    } completeBlock:^(BOOL isFinished, NSError *error) {
-        
+    } completeBlock:^(NSString *taskId, BOOL isFinished, NSError *error) {
+        if (isFinished)
+        {
+            [weakSelf.downloadArray removeObject:taskId];
+        }
     }];
+//    [self.downloadArray addObject:taskId];
 }
 
 - (IBAction)suspendDownload:(id)sender
 {
+    [[BYDownloadManager sharedDownloadManager] pauseDownload:self.downloadTaskId];
 }
 
 - (IBAction)resumeDownload:(id)sender
 {
+    [[BYDownloadManager sharedDownloadManager] resumeDownload:self.downloadTaskId];
 }
+
+- (IBAction)cancelDownload:(id)sender
+{
+    [[BYDownloadManager sharedDownloadManager] cancelDownload:self.downloadTaskId];
+}
+
+#pragma mark - Getter
+- (NSMutableArray *)downloadArray
+{
+    if (_downloadArray == nil)
+    {
+        _downloadArray = [NSMutableArray array];
+    }
+    return _downloadArray;
+}
+
 @end

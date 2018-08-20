@@ -31,7 +31,6 @@
 @property (nonatomic, strong) NSURLSession *session;
 @property (nonatomic, strong) NSURLSessionDataTask *dataTask;
 
-
 @end
 
 @implementation BYDownloadOpreation
@@ -64,8 +63,7 @@
 {
     if (self.isCancelled || self.isFinished)
     {
-//        self.isExecuting = YES;
-
+        _executing = YES;
     }
     
     NSURL *requestURL = [NSURL URLWithString:self.downloadUrl];
@@ -90,18 +88,27 @@
 
 - (void)suspend
 {
-    
+    [self.dataTask suspend];
+    _executing = NO;
 }
 
-- (void)stop
+- (void)cancel
 {
-    [self cancel];
+    [self.dataTask cancel];
+    [super cancel];
+    _executing = NO;
+    [self setFinished:YES];
 }
 
-- (void)resume
-{
-    
-}
+//- (void)stop
+//{
+//    [self.dataTask cancel];
+//}
+//
+//- (void)resume
+//{
+//    
+//}
 
 
 #pragma mark - Gett && Setter
@@ -162,11 +169,11 @@ didCompleteWithError:(nullable NSError *)error
     [self.outputStream close];
     if (error == nil)
     {
-        self.completeBlock(self, YES, nil);
+        self.completeBlock(self.operationId, YES, nil);
     }
     else
     {
-        self.completeBlock(self, NO, error);
+        self.completeBlock(self.operationId, NO, error);
     }
     NSLog(@"%s",__func__);
 }

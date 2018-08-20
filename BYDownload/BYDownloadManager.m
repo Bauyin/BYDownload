@@ -37,8 +37,8 @@
 {
     BYDownloadOpreation *operation = [[BYDownloadOpreation alloc] initOperationWithDownloadUrl:URL saveFilePath:path startLocation:location progressBlock:^(NSData *recivedData, long recivedDataLengh, long totalDataLengh) {
         progressBlock(recivedData,recivedDataLengh,totalDataLengh);
-    } completeBlock:^(BYDownloadOpreation *opreation, BOOL isFinished, NSError *error) {
-        completeBlock(isFinished,error);
+    } completeBlock:^(NSString *taskId, BOOL isFinished, NSError *error) {
+        completeBlock(taskId,isFinished,error);
     }];
     dispatch_semaphore_wait(self.downloadArraySemphore, DISPATCH_TIME_FOREVER);
     [self.downloadArray addObject:operation];
@@ -48,6 +48,37 @@
     return operation.operationId;
 }
 
+- (void)cancelDownload:(NSString *)identifer
+{
+//    dispatch
+    [self.downloadArray enumerateObjectsUsingBlock:^(BYDownloadOpreation *operation, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([operation.operationId isEqualToString:identifer])
+        {
+            [operation cancel];
+            *stop = YES;
+        }
+    }];
+}
+
+- (void)pauseDownload:(NSString *)identifer
+{
+    [self.downloadArray enumerateObjectsUsingBlock:^(BYDownloadOpreation *operation, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([operation.operationId isEqualToString:identifer])
+        {
+            [operation suspend];
+            *stop = YES;
+        }
+    }];
+}
+
+- (void)resumeDownload:(NSString *)identifer
+{
+    NSOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"123");
+    } ];
+    [self.downloadQueue addOperation:operation];
+    
+}
 #pragma mark - Getter
 - (NSMutableArray *)downloadArray
 {
