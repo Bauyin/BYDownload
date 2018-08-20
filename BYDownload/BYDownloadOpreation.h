@@ -15,7 +15,10 @@ typedef void(^BYDownloadOpreationCompleteBlock)(BYDownloadOpreation *opreation,B
 
 @interface BYDownloadOpreation : NSOperation
 
+@property (nonatomic, strong, readonly) NSString *operationId;
+
 - (instancetype)initOperationWithDownloadUrl:(NSString *)URL
+                                saveFilePath:(NSString *)filePath
             startLocation:(long long)location
             progressBlock:(BYDownloadOpreationProgressBlock)progressBlock
             completeBlock:(BYDownloadOpreationCompleteBlock)completeBlock;

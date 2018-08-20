@@ -8,6 +8,26 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void(^BYDownloadManagerProgressBlock)(NSData *recivedData, long recivedDataLengh, long totalDataLengh);
+typedef void(^BYDownloadManagerCompleteBlock)(BOOL isFinished, NSError *error);
+
+
 @interface BYDownloadManager : NSObject
+
++ (instancetype)sharedDownloadManager;
+
+- (NSString *)startDownloadWithUrl:(NSString *)URL
+                                toFilePath:(NSString *)path
+                               startLocation:(long long)location
+                               progressBlock:(BYDownloadManagerProgressBlock)progressBlock
+                               completeBlock:(BYDownloadManagerCompleteBlock)completeBlock;
+
+- (void)cancelDownload:(NSString *)identifer;
+
+- (void)cancelAllDownload;
+
+- (void)pauseDownload:(NSString *)identifer;
+
+- (void)pauseAllDownload;
 
 @end

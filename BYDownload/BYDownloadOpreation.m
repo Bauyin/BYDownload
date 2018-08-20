@@ -8,7 +8,7 @@
 
 #import "BYDownloadOpreation.h"
 
-@interface BYDownloadOpreation()<NSURLSessionDelegate>
+@interface BYDownloadOpreation()<NSURLSessionDataDelegate>
 
 #pragma mark property rewrite
 @property (nonatomic, assign, getter=isFinished) BOOL finished; //rewrite，自己控制
@@ -16,13 +16,21 @@
 
 #pragma mark property private
 
+@property (nonatomic, strong) NSString *operationId;
 @property (nonatomic, strong) NSString *downloadUrl;
+
 @property (nonatomic, assign) long long startLocation;
+@property (nonatomic, assign) long long totalFileLength;
+@property (nonatomic, assign) long long writedFileLength;
+@property (nonatomic, strong) NSString *saveFilePath;
+@property (nonatomic, strong) NSOutputStream *outputStream;
+
 @property (nonatomic, strong) BYDownloadOpreationProgressBlock progressBlock;
 @property (nonatomic, strong) BYDownloadOpreationCompleteBlock completeBlock;
 
 @property (nonatomic, strong) NSURLSession *session;
 @property (nonatomic, strong) NSURLSessionDataTask *dataTask;
+
 
 @end
 
@@ -31,16 +39,20 @@
 @synthesize executing = _executing;
 
 - (instancetype)initOperationWithDownloadUrl:(NSString *)URL
+                                saveFilePath:(NSString *)filePath
                                startLocation:(long long)location
                                progressBlock:(BYDownloadOpreationProgressBlock)progressBlock
                                completeBlock:(BYDownloadOpreationCompleteBlock)completeBlock
 {
     if (self = [super init])
     {
+        self.saveFilePath = filePath;
         self.downloadUrl = URL;
         self.startLocation = location;
         self.progressBlock = progressBlock;
         self.completeBlock = completeBlock;
+        NSTimeInterval interval = [[NSDate date] timeIntervalSince1970];
+        self.operationId = [NSString stringWithFormat:@"%@%.0f",URL.lastPathComponent,interval];
     }
     return self;
 }
@@ -110,5 +122,52 @@
     _finished = finished;
     [self didChangeValueForKey:@"_isFinished"];
 }
-                     
+
+- (NSOutputStream *)outputStream
+{
+    if (_outputStream == nil)
+    {
+        _outputStream = [NSOutputStream outputStreamToFileAtPath:self.saveFilePath append:YES];
+        [_outputStream open];
+    }
+    return _outputStream;
+}
+#pragma mark - NSURLSessionDataTaskDeleagte
+- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask
+didReceiveResponse:(NSURLResponse *)response
+ completionHandler:(void (^)(NSURLSessionResponseDisposition disposition))completionHandler
+{
+    self.totalFileLength = response.expectedContentLength;
+    completionHandler(NSURLSessionResponseAllow);
+    
+    NSLog(@"%s",__func__);
+}
+
+- (void)URLSession:(NSURLSession *)session
+          dataTask:(nonnull NSURLSessionDataTask *)dataTask
+    didReceiveData:(nonnull NSData *)data
+{
+    [self.outputStream open];
+    [self.outputStream write:[data bytes] maxLength:data.length];
+    [self.outputStream close];
+    self.writedFileLength += data.length;
+    self.progressBlock(data, self.writedFileLength, dataTask.response.expectedContentLength);
+//    NSLog(@"%s--%lu--%ld",__func__,(unsigned long)data.length,(long)lenth);
+}
+
+- (void)URLSession:(NSURLSession *)session
+              task:(NSURLSessionTask *)task
+didCompleteWithError:(nullable NSError *)error
+{
+    [self.outputStream close];
+    if (error == nil)
+    {
+        self.completeBlock(self, YES, nil);
+    }
+    else
+    {
+        self.completeBlock(self, NO, error);
+    }
+    NSLog(@"%s",__func__);
+}
 @end

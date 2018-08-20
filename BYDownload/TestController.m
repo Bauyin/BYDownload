@@ -24,19 +24,40 @@
 //    self.myBlock = ^{
 //        NSLog(@"%@",self);
 //    };
-    self.stringA = [NSMutableString stringWithString:@"123"];
-    self.stringB = [NSMutableString stringWithString:@"123"];
-    NSString *appendA = [self.stringA stringByAppendingString:@"456"];
-    NSString *appendB = [self.stringA stringByAppendingString:@"456"];
-    NSLog(@"%@---%@",appendA,appendB);
-    [[NSUserDefaults standardUserDefaults] setObject:[[NSObject alloc] init] forKey:@"123"];
+//    [self stringCopyTest];
+    UIImage *image = [[UIImage imageNamed:@"nav_close"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(test)];
 }
-
+- (void)test
+{
+    
+}
 - (void)dealloc
 {
     NSLog(@"%s",__func__);
 }
 
+- (void)stringCopyTest
+{
+    NSString *string = @"123";
+    self.stringA = [NSMutableString stringWithString:string];
+    self.stringB = [NSMutableString stringWithString:string];
+    NSString *appendA = [self.stringA stringByAppendingString:@"456"];
+    NSString *appendB = [self.stringB stringByAppendingString:@"456"];
+    NSLog(@"string:%p",string);
+    NSLog(@"stringA:%p",_stringA);
+    NSLog(@"stringB:%p",_stringB);
+    NSLog(@"appendA:%p",appendA);
+    NSLog(@"appendB:%p",appendB);
+}
+
+- (void)UserDefaultsTest
+{
+    //    NSMutableArray *array = [NSMutableArray arrayWithObjects:@"123",@"345",nil];
+    //    [[NSUserDefaults standardUserDefaults] setObject:array forKey:@"123"];
+    //    id object = [[NSUserDefaults standardUserDefaults] objectForKey:@"123"];
+    [[NSUserDefaults standardUserDefaults] setObject:[[NSObject alloc]init] forKey:@"123"];
+}
 /**
  NSArray持有对象和Block捕获对象的区别
  */
