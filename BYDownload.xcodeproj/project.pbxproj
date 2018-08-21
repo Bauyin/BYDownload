@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		42077BF72123CA3A0083365B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42077BF62123CA3A0083365B /* AppDelegate.m */; };
-		42077BFA2123CA3A0083365B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42077BF92123CA3A0083365B /* ViewController.m */; };
 		42077BFD2123CA3A0083365B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42077BFB2123CA3A0083365B /* Main.storyboard */; };
 		42077BFF2123CA3B0083365B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42077BFE2123CA3B0083365B /* Assets.xcassets */; };
 		42077C022123CA3B0083365B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42077C002123CA3B0083365B /* LaunchScreen.storyboard */; };
@@ -18,6 +17,9 @@
 		420A1434212410BD00449115 /* TestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420A1433212410BD00449115 /* TestController.m */; };
 		420A1437212413C400449115 /* TestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 420A1436212413C400449115 /* TestObject.m */; };
 		420A143A2124293D00449115 /* BlockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 420A14392124293D00449115 /* BlockTest.m */; };
+		42165783212BEB16008CF6C1 /* DownloadManagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4216577D212BEB16008CF6C1 /* DownloadManagerController.m */; };
+		42165784212BEB16008CF6C1 /* BYDownloadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42165782212BEB16008CF6C1 /* BYDownloadCell.m */; };
+		42165787212BED4D008CF6C1 /* DownloadObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 42165786212BED4D008CF6C1 /* DownloadObject.m */; };
 		77DEB900212B0F4200F30B0E /* TestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DEB8FF212B0F4200F30B0E /* TestOperation.m */; };
 /* End PBXBuildFile section */
 
@@ -25,8 +27,6 @@
 		42077BF22123CA3A0083365B /* BYDownload.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BYDownload.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42077BF52123CA3A0083365B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		42077BF62123CA3A0083365B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		42077BF82123CA3A0083365B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		42077BF92123CA3A0083365B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		42077BFC2123CA3A0083365B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		42077BFE2123CA3B0083365B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42077C012123CA3B0083365B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -43,6 +43,12 @@
 		420A14382124293D00449115 /* BlockTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockTest.h; sourceTree = "<group>"; };
 		420A14392124293D00449115 /* BlockTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlockTest.m; sourceTree = "<group>"; };
 		420A143C21242C4B00449115 /* BlockTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BlockTest.cpp; sourceTree = "<group>"; };
+		4216577D212BEB16008CF6C1 /* DownloadManagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadManagerController.m; sourceTree = "<group>"; };
+		4216577E212BEB16008CF6C1 /* DownloadManagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadManagerController.h; sourceTree = "<group>"; };
+		42165781212BEB16008CF6C1 /* BYDownloadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BYDownloadCell.h; sourceTree = "<group>"; };
+		42165782212BEB16008CF6C1 /* BYDownloadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYDownloadCell.m; sourceTree = "<group>"; };
+		42165785212BED4D008CF6C1 /* DownloadObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownloadObject.h; sourceTree = "<group>"; };
+		42165786212BED4D008CF6C1 /* DownloadObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownloadObject.m; sourceTree = "<group>"; };
 		77DEB8FE212B0F4200F30B0E /* TestOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestOperation.h; sourceTree = "<group>"; };
 		77DEB8FF212B0F4200F30B0E /* TestOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,10 +83,9 @@
 		42077BF42123CA3A0083365B /* BYDownload */ = {
 			isa = PBXGroup;
 			children = (
+				4216577B212BEB16008CF6C1 /* Donwload */,
 				42077BF52123CA3A0083365B /* AppDelegate.h */,
 				42077BF62123CA3A0083365B /* AppDelegate.m */,
-				42077BF82123CA3A0083365B /* ViewController.h */,
-				42077BF92123CA3A0083365B /* ViewController.m */,
 				42077BFB2123CA3A0083365B /* Main.storyboard */,
 				42077BFE2123CA3B0083365B /* Assets.xcassets */,
 				42077C002123CA3B0083365B /* LaunchScreen.storyboard */,
@@ -101,6 +106,43 @@
 				77DEB8FF212B0F4200F30B0E /* TestOperation.m */,
 			);
 			path = BYDownload;
+			sourceTree = "<group>";
+		};
+		4216577B212BEB16008CF6C1 /* Donwload */ = {
+			isa = PBXGroup;
+			children = (
+				4216577C212BEB16008CF6C1 /* Controller */,
+				4216577F212BEB16008CF6C1 /* Model */,
+				42165780212BEB16008CF6C1 /* View */,
+			);
+			path = Donwload;
+			sourceTree = "<group>";
+		};
+		4216577C212BEB16008CF6C1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4216577E212BEB16008CF6C1 /* DownloadManagerController.h */,
+				4216577D212BEB16008CF6C1 /* DownloadManagerController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4216577F212BEB16008CF6C1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				42165785212BED4D008CF6C1 /* DownloadObject.h */,
+				42165786212BED4D008CF6C1 /* DownloadObject.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		42165780212BEB16008CF6C1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				42165781212BEB16008CF6C1 /* BYDownloadCell.h */,
+				42165782212BEB16008CF6C1 /* BYDownloadCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,11 +218,13 @@
 				42077C0D2123CF4B0083365B /* BYDownloadOpreation.m in Sources */,
 				420A143A2124293D00449115 /* BlockTest.m in Sources */,
 				420A1434212410BD00449115 /* TestController.m in Sources */,
-				42077BFA2123CA3A0083365B /* ViewController.m in Sources */,
 				420A1437212413C400449115 /* TestObject.m in Sources */,
 				42077C102123D0920083365B /* BYDownloadManager.m in Sources */,
 				42077C052123CA3B0083365B /* main.m in Sources */,
+				42165787212BED4D008CF6C1 /* DownloadObject.m in Sources */,
+				42165783212BEB16008CF6C1 /* DownloadManagerController.m in Sources */,
 				42077BF72123CA3A0083365B /* AppDelegate.m in Sources */,
+				42165784212BEB16008CF6C1 /* BYDownloadCell.m in Sources */,
 				77DEB900212B0F4200F30B0E /* TestOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

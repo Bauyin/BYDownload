@@ -76,12 +76,15 @@
 
 - (void)resumeDownload:(NSString *)identifer
 {
-    NSOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
-        NSLog(@"123");
-    } ];
-    [self.downloadQueue addOperation:operation];
-    
+    [self.downloadArray enumerateObjectsUsingBlock:^(BYDownloadOpreation *operation, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([operation.operationId isEqualToString:identifer])
+        {
+            [operation resume];
+            *stop = YES;
+        }
+    }];
 }
+
 #pragma mark - Getter
 - (NSMutableArray *)downloadArray
 {
