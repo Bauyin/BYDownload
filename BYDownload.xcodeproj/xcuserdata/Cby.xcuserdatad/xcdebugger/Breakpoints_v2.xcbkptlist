@@ -259,7 +259,7 @@
                   moduleName = "BYDownload"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Cby/Desktop/WorkSpace/BYDownload/BYDownload/KVO/KVOArrayController.m"
-                  timestampString = "557126583.460559"
+                  timestampString = "557923426.9068609"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "31"
@@ -274,7 +274,7 @@
                   moduleName = "BYDownload"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Cby/Desktop/WorkSpace/BYDownload/BYDownload/KVO/KVOArrayController.m"
-                  timestampString = "557126583.462449"
+                  timestampString = "557923426.9095"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "31"
@@ -289,7 +289,7 @@
                   moduleName = "BYDownload"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Cby/Desktop/WorkSpace/BYDownload/BYDownload/KVO/KVOArrayController.m"
-                  timestampString = "557126583.464146"
+                  timestampString = "557923426.912447"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "31"
@@ -297,6 +297,70 @@
                   offsetFromSymbolStart = "20">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BYDownload/String/StringTestController.m"
+            timestampString = "557923426.798811"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "-test2:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BYDownload/String/StringTestController.m"
+            timestampString = "557923426.79928"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "-WhyIsEqualTo:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BYDownload/String/StringTestController.m"
+            timestampString = "557923426.799607"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "-WhyIsEqualTo:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BYDownload/String/StringTestController.m"
+            timestampString = "557923429.783293"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "-WhyIsEqualTo:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

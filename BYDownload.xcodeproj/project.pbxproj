@@ -17,6 +17,7 @@
 		420A143A2124293D00449115 /* BlockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 420A14392124293D00449115 /* BlockTest.m */; };
 		42165784212BEB16008CF6C1 /* BYDownloadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42165782212BEB16008CF6C1 /* BYDownloadCell.m */; };
 		42165787212BED4D008CF6C1 /* DownloadObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 42165786212BED4D008CF6C1 /* DownloadObject.m */; };
+		4217B2DD2140FC3900FE7078 /* StringTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4217B2DC2140FC3900FE7078 /* StringTestController.m */; };
 		42FB51862134E37D003CEC7A /* DownloadManagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB51842134E37D003CEC7A /* DownloadManagerController.m */; };
 		42FB518C2134E385003CEC7A /* BYDownloadOpreation.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB51882134E385003CEC7A /* BYDownloadOpreation.m */; };
 		42FB518D2134E385003CEC7A /* BYDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB51892134E385003CEC7A /* BYDownloadManager.m */; };
@@ -45,6 +46,8 @@
 		42165782212BEB16008CF6C1 /* BYDownloadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYDownloadCell.m; sourceTree = "<group>"; };
 		42165785212BED4D008CF6C1 /* DownloadObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownloadObject.h; sourceTree = "<group>"; };
 		42165786212BED4D008CF6C1 /* DownloadObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownloadObject.m; sourceTree = "<group>"; };
+		4217B2DB2140FC3900FE7078 /* StringTestController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringTestController.h; sourceTree = "<group>"; };
+		4217B2DC2140FC3900FE7078 /* StringTestController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StringTestController.m; sourceTree = "<group>"; };
 		42FB51842134E37D003CEC7A /* DownloadManagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadManagerController.m; sourceTree = "<group>"; };
 		42FB51852134E37D003CEC7A /* DownloadManagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadManagerController.h; sourceTree = "<group>"; };
 		42FB51882134E385003CEC7A /* BYDownloadOpreation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYDownloadOpreation.m; sourceTree = "<group>"; };
@@ -89,6 +92,7 @@
 		42077BF42123CA3A0083365B /* BYDownload */ = {
 			isa = PBXGroup;
 			children = (
+				4217B2DA2140FC2100FE7078 /* String */,
 				42FB518E2134E40C003CEC7A /* KVO */,
 				4216577B212BEB16008CF6C1 /* Donwload */,
 				42077BF52123CA3A0083365B /* AppDelegate.h */,
@@ -138,6 +142,15 @@
 				42165782212BEB16008CF6C1 /* BYDownloadCell.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		4217B2DA2140FC2100FE7078 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				4217B2DB2140FC3900FE7078 /* StringTestController.h */,
+				4217B2DC2140FC3900FE7078 /* StringTestController.m */,
+			);
+			path = String;
 			sourceTree = "<group>";
 		};
 		42FB51832134E37D003CEC7A /* Controller */ = {
@@ -245,6 +258,7 @@
 				420A143A2124293D00449115 /* BlockTest.m in Sources */,
 				420A1434212410BD00449115 /* TestController.m in Sources */,
 				420A1437212413C400449115 /* TestObject.m in Sources */,
+				4217B2DD2140FC3900FE7078 /* StringTestController.m in Sources */,
 				42FB518C2134E385003CEC7A /* BYDownloadOpreation.m in Sources */,
 				42077C052123CA3B0083365B /* main.m in Sources */,
 				42165787212BED4D008CF6C1 /* DownloadObject.m in Sources */,
@@ -401,7 +415,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.koolearn.koolearnMotion.BYDownload;
+				PRODUCT_BUNDLE_IDENTIFIER = com.koolearn.BYDownload;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -419,7 +433,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.koolearn.koolearnMotion.BYDownload;
+				PRODUCT_BUNDLE_IDENTIFIER = com.koolearn.BYDownload;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -38,7 +38,7 @@ int c = 10;
     NSLog(@"##c     = %p",&c);//对象的地址,0x107ee5498,全局区/静态区(static)
 
     NSObject *object = [[NSObject alloc] init];
-    NSLog(@"##object     = %p",&object);//对象的地址,0x7ffee2ef3de0,栈(stack)内存
+    NSLog(@"##object     = %p",object);//对象的地址,0x7ffee2ef3de0,栈(stack)内存
 
     
     NSString *string = [NSString stringWithFormat:@"12343242341234123412341234213412341234123412341234123412341"];
