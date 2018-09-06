@@ -10,6 +10,105 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="4cj-kX-to4">
+            <objects>
+                <viewController id="o3G-Ed-N9n" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gux-MH-hnP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rl2-w0-Ztc">
+                                <rect key="frame" x="154" y="101" width="67" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="download"/>
+                                <connections>
+                                    <segue destination="5LR-95-IMG" kind="show" id="INT-Jx-H37"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Aj-F3-M1g">
+                                <rect key="frame" x="153" y="165" width="67" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="KVOArray"/>
+                                <connections>
+                                    <segue destination="YCt-fL-VHD" kind="show" id="gTt-g4-YIv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="8G5-9o-Bzy"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="len-K8-8pT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PhM-oS-HQQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1058.4000000000001" y="20.239880059970016"/>
+        </scene>
+        <!--Array Controller-->
+        <scene sceneID="IDe-bl-YvE">
+            <objects>
+                <viewController id="YCt-fL-VHD" customClass="KVOArrayController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FYI-IH-Vuj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PfK-uA-rQZ">
+                                <rect key="frame" x="105" y="115" width="164" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="MutableArrayAddObject"/>
+                                <connections>
+                                    <action selector="mutableArrayAddObject:" destination="YCt-fL-VHD" eventType="touchUpInside" id="eyz-I1-eFj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TWO-H0-583">
+                                <rect key="frame" x="91" y="168" width="193" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="MutableArrayRemoveObject"/>
+                                <connections>
+                                    <action selector="mutableArrayRemoveObject:" destination="YCt-fL-VHD" eventType="touchUpInside" id="fg1-79-fdv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jQ-G0-Sdg">
+                                <rect key="frame" x="91" y="218" width="193" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="MutableArrayRepalceObject"/>
+                                <connections>
+                                    <action selector="mutableArrayRepalceObject:" destination="YCt-fL-VHD" eventType="touchUpInside" id="APq-8k-vbm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4J-R5-jER">
+                                <rect key="frame" x="65" y="334" width="198" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="MutableDictionaryAddObject"/>
+                                <connections>
+                                    <action selector="mutableDictionaryAddObject:" destination="YCt-fL-VHD" eventType="touchUpInside" id="4zi-ds-OMS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0e2-tf-d4e">
+                                <rect key="frame" x="52" y="387" width="226" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="MutableDictionaryRemoveObject"/>
+                                <connections>
+                                    <action selector="mutableDictionaryRemoveObject:" destination="YCt-fL-VHD" eventType="touchUpInside" id="JUd-gU-WJ5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bk1-tg-tc1">
+                                <rect key="frame" x="52" y="437" width="226" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="MutableDictionaryRepalceObject"/>
+                                <connections>
+                                    <action selector="mutableDictionaryRepalceObject:" destination="YCt-fL-VHD" eventType="touchUpInside" id="EHc-N6-bbq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="djV-kx-BRF"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hpj-9A-4KN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1058" y="800"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Afu-nk-0Xg">
             <objects>
@@ -19,12 +118,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="5LR-95-IMG" kind="relationship" relationship="rootViewController" id="Zi5-t9-5Ov"/>
+                        <segue destination="o3G-Ed-N9n" kind="relationship" relationship="rootViewController" id="lnj-JX-2KH"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EC9-BC-oew" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-439" y="84"/>
+            <point key="canvasLocation" x="-1775" y="22"/>
         </scene>
         <!--Download Manager Controller-->
         <scene sceneID="7xR-cS-R6f">
@@ -131,7 +230,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="osZ-lL-4Us" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="384.80000000000001" y="82.3088455772114"/>
+            <point key="canvasLocation" x="-244" y="21"/>
         </scene>
         <!--Test Controller-->
         <scene sceneID="quE-lZ-9Pe">

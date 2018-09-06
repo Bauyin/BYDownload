@@ -8,6 +8,7 @@
 
 #import "BYDownloadCell.h"
 #import "BYDownloadManager.h"
+#import "BYDownloadOpreation.h"
 
 typedef enum{
     BYDownloadCellStatusUnstart = 0,
@@ -30,6 +31,7 @@ typedef enum{
 @property (nonatomic, strong) DownloadObject *downloadModel;
 @property (nonatomic, strong) NSString *downloadOperationId;
 @property (nonatomic, assign) BYDownloadCellStatus nowStatus;
+@property (nonatomic, strong) BYDownloadOpreation *opreation;
 
 @end
 
@@ -105,16 +107,19 @@ typedef enum{
     if (self.nowStatus == BYDownloadCellStatusReady || self.nowStatus == BYDownloadCellStatusExecuting)
     {
         self.nowStatus = BYDownloadCellStatusPaused;
-        [[BYDownloadManager sharedDownloadManager] pauseDownload:self.downloadOperationId];
+//        [[BYDownloadManager sharedDownloadManager] pauseDownload:self.downloadOperationId];
+        [self.opreation suspend];
     }
     if (self.nowStatus == BYDownloadCellStatusPaused)
     {
         self.nowStatus = BYDownloadCellStatusReady;
-        [[BYDownloadManager sharedDownloadManager] resumeDownload:self.downloadOperationId];
+//        [[BYDownloadManager sharedDownloadManager] resumeDownload:self.downloadOperationId];
+        [self.opreation resume];
     }
     if (self.nowStatus == BYDownloadCellStatusUnstart)
     {
-        [self startDownload];
+//        [self startDownload];
+        [self startDownloadOperation];
     }
 }
 
@@ -137,6 +142,28 @@ typedef enum{
             weakSelf.nowStatus = BYDownloadCellStatusFinished;
         }
     }];
+    self.nowStatus = BYDownloadCellStatusReady;
+}
+
+- (void)startDownloadOperation
+{
+    __weak typeof(self) weakSelf = self;
+    self.opreation = [[BYDownloadOpreation alloc] initOperationWithDownloadUrl:self.downloadModel.downloadURL writeToFilePath:self.downloadModel.cachedPath writedFileSize:self.downloadModel.cachedSize progressBlock:^(NSData *recivedData, long recivedDataLengh, long totalDataLengh) {
+        self.nowStatus = BYDownloadCellStatusExecuting;
+        weakSelf.downloadModel.cachedSize = recivedDataLengh;
+        weakSelf.downloadModel.totalSize = totalDataLengh;
+        [weakSelf refreshProgressUI];
+    } completeBlock:^(NSString *taskId, BOOL isFinished, NSError *error) {
+        if (!isFinished && error != nil)
+        {
+            weakSelf.nowStatus = BYDownloadCellStatusError;
+        }
+        else
+        {
+            weakSelf.nowStatus = BYDownloadCellStatusFinished;
+        }
+    }];
+    [self.opreation start];
     self.nowStatus = BYDownloadCellStatusReady;
 }
 @end

@@ -12,14 +12,16 @@
 		42077BFF2123CA3B0083365B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42077BFE2123CA3B0083365B /* Assets.xcassets */; };
 		42077C022123CA3B0083365B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42077C002123CA3B0083365B /* LaunchScreen.storyboard */; };
 		42077C052123CA3B0083365B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42077C042123CA3B0083365B /* main.m */; };
-		42077C0D2123CF4B0083365B /* BYDownloadOpreation.m in Sources */ = {isa = PBXBuildFile; fileRef = 42077C0C2123CF4B0083365B /* BYDownloadOpreation.m */; };
-		42077C102123D0920083365B /* BYDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 42077C0F2123D0920083365B /* BYDownloadManager.m */; };
 		420A1434212410BD00449115 /* TestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420A1433212410BD00449115 /* TestController.m */; };
 		420A1437212413C400449115 /* TestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 420A1436212413C400449115 /* TestObject.m */; };
 		420A143A2124293D00449115 /* BlockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 420A14392124293D00449115 /* BlockTest.m */; };
-		42165783212BEB16008CF6C1 /* DownloadManagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4216577D212BEB16008CF6C1 /* DownloadManagerController.m */; };
 		42165784212BEB16008CF6C1 /* BYDownloadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42165782212BEB16008CF6C1 /* BYDownloadCell.m */; };
 		42165787212BED4D008CF6C1 /* DownloadObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 42165786212BED4D008CF6C1 /* DownloadObject.m */; };
+		42FB51862134E37D003CEC7A /* DownloadManagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB51842134E37D003CEC7A /* DownloadManagerController.m */; };
+		42FB518C2134E385003CEC7A /* BYDownloadOpreation.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB51882134E385003CEC7A /* BYDownloadOpreation.m */; };
+		42FB518D2134E385003CEC7A /* BYDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB51892134E385003CEC7A /* BYDownloadManager.m */; };
+		42FB51912134E427003CEC7A /* KVOArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB51902134E427003CEC7A /* KVOArrayController.m */; };
+		42FB51942134E480003CEC7A /* BYKVOArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FB51932134E480003CEC7A /* BYKVOArray.m */; };
 		77DEB900212B0F4200F30B0E /* TestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DEB8FF212B0F4200F30B0E /* TestOperation.m */; };
 /* End PBXBuildFile section */
 
@@ -32,10 +34,6 @@
 		42077C012123CA3B0083365B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42077C032123CA3B0083365B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42077C042123CA3B0083365B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		42077C0B2123CF4B0083365B /* BYDownloadOpreation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BYDownloadOpreation.h; sourceTree = "<group>"; };
-		42077C0C2123CF4B0083365B /* BYDownloadOpreation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BYDownloadOpreation.m; sourceTree = "<group>"; };
-		42077C0E2123D0920083365B /* BYDownloadManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BYDownloadManager.h; sourceTree = "<group>"; };
-		42077C0F2123D0920083365B /* BYDownloadManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BYDownloadManager.m; sourceTree = "<group>"; };
 		420A1432212410BD00449115 /* TestController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestController.h; sourceTree = "<group>"; };
 		420A1433212410BD00449115 /* TestController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestController.m; sourceTree = "<group>"; };
 		420A1435212413C400449115 /* TestObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestObject.h; sourceTree = "<group>"; };
@@ -43,12 +41,20 @@
 		420A14382124293D00449115 /* BlockTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockTest.h; sourceTree = "<group>"; };
 		420A14392124293D00449115 /* BlockTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlockTest.m; sourceTree = "<group>"; };
 		420A143C21242C4B00449115 /* BlockTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BlockTest.cpp; sourceTree = "<group>"; };
-		4216577D212BEB16008CF6C1 /* DownloadManagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadManagerController.m; sourceTree = "<group>"; };
-		4216577E212BEB16008CF6C1 /* DownloadManagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadManagerController.h; sourceTree = "<group>"; };
 		42165781212BEB16008CF6C1 /* BYDownloadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BYDownloadCell.h; sourceTree = "<group>"; };
 		42165782212BEB16008CF6C1 /* BYDownloadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYDownloadCell.m; sourceTree = "<group>"; };
 		42165785212BED4D008CF6C1 /* DownloadObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownloadObject.h; sourceTree = "<group>"; };
 		42165786212BED4D008CF6C1 /* DownloadObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownloadObject.m; sourceTree = "<group>"; };
+		42FB51842134E37D003CEC7A /* DownloadManagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadManagerController.m; sourceTree = "<group>"; };
+		42FB51852134E37D003CEC7A /* DownloadManagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadManagerController.h; sourceTree = "<group>"; };
+		42FB51882134E385003CEC7A /* BYDownloadOpreation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYDownloadOpreation.m; sourceTree = "<group>"; };
+		42FB51892134E385003CEC7A /* BYDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYDownloadManager.m; sourceTree = "<group>"; };
+		42FB518A2134E385003CEC7A /* BYDownloadOpreation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BYDownloadOpreation.h; sourceTree = "<group>"; };
+		42FB518B2134E385003CEC7A /* BYDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BYDownloadManager.h; sourceTree = "<group>"; };
+		42FB518F2134E427003CEC7A /* KVOArrayController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KVOArrayController.h; sourceTree = "<group>"; };
+		42FB51902134E427003CEC7A /* KVOArrayController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KVOArrayController.m; sourceTree = "<group>"; };
+		42FB51922134E480003CEC7A /* BYKVOArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BYKVOArray.h; sourceTree = "<group>"; };
+		42FB51932134E480003CEC7A /* BYKVOArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYKVOArray.m; sourceTree = "<group>"; };
 		77DEB8FE212B0F4200F30B0E /* TestOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestOperation.h; sourceTree = "<group>"; };
 		77DEB8FF212B0F4200F30B0E /* TestOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +89,7 @@
 		42077BF42123CA3A0083365B /* BYDownload */ = {
 			isa = PBXGroup;
 			children = (
+				42FB518E2134E40C003CEC7A /* KVO */,
 				4216577B212BEB16008CF6C1 /* Donwload */,
 				42077BF52123CA3A0083365B /* AppDelegate.h */,
 				42077BF62123CA3A0083365B /* AppDelegate.m */,
@@ -91,10 +98,6 @@
 				42077C002123CA3B0083365B /* LaunchScreen.storyboard */,
 				42077C032123CA3B0083365B /* Info.plist */,
 				42077C042123CA3B0083365B /* main.m */,
-				42077C0B2123CF4B0083365B /* BYDownloadOpreation.h */,
-				42077C0C2123CF4B0083365B /* BYDownloadOpreation.m */,
-				42077C0E2123D0920083365B /* BYDownloadManager.h */,
-				42077C0F2123D0920083365B /* BYDownloadManager.m */,
 				420A1432212410BD00449115 /* TestController.h */,
 				420A1433212410BD00449115 /* TestController.m */,
 				420A1435212413C400449115 /* TestObject.h */,
@@ -111,20 +114,12 @@
 		4216577B212BEB16008CF6C1 /* Donwload */ = {
 			isa = PBXGroup;
 			children = (
-				4216577C212BEB16008CF6C1 /* Controller */,
+				42FB51872134E385003CEC7A /* BYDownload */,
+				42FB51832134E37D003CEC7A /* Controller */,
 				4216577F212BEB16008CF6C1 /* Model */,
 				42165780212BEB16008CF6C1 /* View */,
 			);
 			path = Donwload;
-			sourceTree = "<group>";
-		};
-		4216577C212BEB16008CF6C1 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				4216577E212BEB16008CF6C1 /* DownloadManagerController.h */,
-				4216577D212BEB16008CF6C1 /* DownloadManagerController.m */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		4216577F212BEB16008CF6C1 /* Model */ = {
@@ -143,6 +138,37 @@
 				42165782212BEB16008CF6C1 /* BYDownloadCell.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		42FB51832134E37D003CEC7A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				42FB51842134E37D003CEC7A /* DownloadManagerController.m */,
+				42FB51852134E37D003CEC7A /* DownloadManagerController.h */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		42FB51872134E385003CEC7A /* BYDownload */ = {
+			isa = PBXGroup;
+			children = (
+				42FB51882134E385003CEC7A /* BYDownloadOpreation.m */,
+				42FB51892134E385003CEC7A /* BYDownloadManager.m */,
+				42FB518A2134E385003CEC7A /* BYDownloadOpreation.h */,
+				42FB518B2134E385003CEC7A /* BYDownloadManager.h */,
+			);
+			path = BYDownload;
+			sourceTree = "<group>";
+		};
+		42FB518E2134E40C003CEC7A /* KVO */ = {
+			isa = PBXGroup;
+			children = (
+				42FB51922134E480003CEC7A /* BYKVOArray.h */,
+				42FB51932134E480003CEC7A /* BYKVOArray.m */,
+				42FB518F2134E427003CEC7A /* KVOArrayController.h */,
+				42FB51902134E427003CEC7A /* KVOArrayController.m */,
+			);
+			path = KVO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,15 +241,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42077C0D2123CF4B0083365B /* BYDownloadOpreation.m in Sources */,
+				42FB51912134E427003CEC7A /* KVOArrayController.m in Sources */,
 				420A143A2124293D00449115 /* BlockTest.m in Sources */,
 				420A1434212410BD00449115 /* TestController.m in Sources */,
 				420A1437212413C400449115 /* TestObject.m in Sources */,
-				42077C102123D0920083365B /* BYDownloadManager.m in Sources */,
+				42FB518C2134E385003CEC7A /* BYDownloadOpreation.m in Sources */,
 				42077C052123CA3B0083365B /* main.m in Sources */,
 				42165787212BED4D008CF6C1 /* DownloadObject.m in Sources */,
-				42165783212BEB16008CF6C1 /* DownloadManagerController.m in Sources */,
+				42FB51942134E480003CEC7A /* BYKVOArray.m in Sources */,
+				42FB518D2134E385003CEC7A /* BYDownloadManager.m in Sources */,
 				42077BF72123CA3A0083365B /* AppDelegate.m in Sources */,
+				42FB51862134E37D003CEC7A /* DownloadManagerController.m in Sources */,
 				42165784212BEB16008CF6C1 /* BYDownloadCell.m in Sources */,
 				77DEB900212B0F4200F30B0E /* TestOperation.m in Sources */,
 			);

@@ -28,7 +28,7 @@
 @property (nonatomic, strong) BYDownloadOpreationCompleteBlock completeBlock;
 
 @property (nonatomic, strong) NSURLSession *session;
-@property (nonatomic, strong) NSURLSessionDataTask *dataTask;
+@property (nonatomic, strong) NSURLSessionDownloadTask *dataTask;
 
 @end
 
@@ -93,7 +93,8 @@
             NSString *rangValue = [NSString stringWithFormat:@"bytes=%lld-",self.writedFileLength];
             [request addValue:rangValue forHTTPHeaderField:@"Range"];
         }
-        self.dataTask = [self.session dataTaskWithRequest:request];
+//        self.dataTask = [self.session dataTaskWithRequest:request];
+        self.dataTask = [self.session downloadTaskWithRequest:request];
     }
 
     [self.dataTask resume];
@@ -119,7 +120,6 @@
 - (void)suspend
 {
     if (self.isCancelled || self.isFinished) return;
-    
     [self.dataTask suspend];
     [self setExecuting:NO];
 }
