@@ -10,4 +10,12 @@
 
 @implementation TestCopyObject
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    return self;
+}
+- (id)mutableCopyWithZone:(NSZone *)zone
+{
+    return self;
+}
 @end

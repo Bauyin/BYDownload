@@ -7,6 +7,7 @@
 //
 
 #import "StringTestController.h"
+#import "TestCopyObject.h"
 
 @interface StringTestController ()
 @property (nonatomic, copy) NSMutableString *mStr;
@@ -21,12 +22,21 @@
 {
     [super viewDidLoad];
 //    [self testMutableStringType];
-    [self testCopyMutableCopy];
+//    [self testCopyMutableCopy];
+    [self testObjectCopy];
 }
 
+
+/**
+ 如果TestCopyObject不实现<NSCopying>协议，调用copy会崩溃;
+ 如果TestCopyObject只实现<NSCopying>协议，不实现copyWithZone方法，调用copy会崩溃;
+ */
 - (void)testObjectCopy
 {
-    
+    TestCopyObject *object = [[TestCopyObject alloc] init];
+    TestCopyObject *object2 = [object copy];
+    TestCopyObject *object3 = [object mutableCopy];
+
 }
 /**
  可变对象copy--->新的不可变对象(深copy)

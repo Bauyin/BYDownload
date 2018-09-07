@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TestCopyObject : NSObject
+@interface TestCopyObject : NSObject<NSCopying,NSMutableCopying>
 
 @end
