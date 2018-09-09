@@ -353,6 +353,8 @@
 		42FB51932134E480003CEC7A /* BYKVOArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYKVOArray.m; sourceTree = "<group>"; };
 		77DEB8FE212B0F4200F30B0E /* TestOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestOperation.h; sourceTree = "<group>"; };
 		77DEB8FF212B0F4200F30B0E /* TestOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestOperation.m; sourceTree = "<group>"; };
+		77DEBBB5214574A600F30B0E /* WeakTableTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeakTableTest.h; sourceTree = "<group>"; };
+		77DEBBB6214574A600F30B0E /* WeakTableTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeakTableTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -385,6 +387,7 @@
 		42077BF42123CA3A0083365B /* BYDownload */ = {
 			isa = PBXGroup;
 			children = (
+				77DEBBB22145748C00F30B0E /* weakTable */,
 				42A6FAAB21421E2500EFCCCA /* CF-1153.18 */,
 				42A6FA2D21421DFE00EFCCCA /* objc4-723 */,
 				4217B2DA2140FC2100FE7078 /* String */,
@@ -829,6 +832,15 @@
 				42FB51902134E427003CEC7A /* KVOArrayController.m */,
 			);
 			path = KVO;
+			sourceTree = "<group>";
+		};
+		77DEBBB22145748C00F30B0E /* weakTable */ = {
+			isa = PBXGroup;
+			children = (
+				77DEBBB5214574A600F30B0E /* WeakTableTest.h */,
+				77DEBBB6214574A600F30B0E /* WeakTableTest.m */,
+			);
+			path = weakTable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
